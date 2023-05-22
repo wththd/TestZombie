@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-namespace ZombieGame.Scripts.Damage
+namespace ZombieGame.Scripts.Damage.Projectiles
 {
     public class ProjectileFactory : IFactory<Vector3, Vector3, ProjectileSettings, Projectile>
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using ZombieGame.Scripts.Data;
 using ZombieGame.Scripts.Enemy;
+using ZombieGame.Scripts.Player;
 using ZombieGame.Scripts.Utils;
 using Random = System.Random;
 

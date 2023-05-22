@@ -1,9 +1,12 @@
 using UnityEngine;
 using Zenject;
 using ZombieGame.Scripts.Damage;
+using ZombieGame.Scripts.Damage.Projectiles;
 using ZombieGame.Scripts.Data;
 using ZombieGame.Scripts.Enemy;
+using ZombieGame.Scripts.Player;
 using ZombieGame.Scripts.Services;
+using ZombieGame.Scripts.Services.InputService;
 using ZombieGame.Scripts.Systems;
 using ZombieGame.Scripts.Utils;
 

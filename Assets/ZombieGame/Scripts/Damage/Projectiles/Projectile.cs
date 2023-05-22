@@ -1,13 +1,11 @@
 using UnityEngine;
 using Zenject;
-using ZombieGame.Scripts.Enemy;
+using ZombieGame.Scripts.Observers;
 
-namespace ZombieGame.Scripts.Damage
+namespace ZombieGame.Scripts.Damage.Projectiles
 {
     public abstract class Projectile : MonoBehaviour, IDamage
     {
-        [SerializeField] protected Rigidbody rb;
-
         [SerializeField] protected TriggerObserver observer;
 
         public abstract void DealDamage(int damage);

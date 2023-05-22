@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using Zenject;
-using ZombieGame.Scripts.Runners;
 using ZombieGame.Scripts.Systems;
 
-namespace ZombieGame.Scripts.Installers
+namespace ZombieGame.Scripts.Runners
 {
     public class GameSceneRunner : BaseRunner
     {

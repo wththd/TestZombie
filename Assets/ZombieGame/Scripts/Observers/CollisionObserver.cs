@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ZombieGame.Scripts.Enemy
+namespace ZombieGame.Scripts.Observers
 {
     [RequireComponent(typeof(Collider))]
     public class CollisionObserver : MonoBehaviour

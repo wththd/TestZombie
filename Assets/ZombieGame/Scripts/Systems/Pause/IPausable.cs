@@ -1,4 +1,4 @@
-﻿namespace ZombieGame.Scripts.Systems
+﻿namespace ZombieGame.Scripts.Systems.Pause
 {
     public interface IPausable
     {

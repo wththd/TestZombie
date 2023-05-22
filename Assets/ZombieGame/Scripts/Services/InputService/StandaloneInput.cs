@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZombieGame.Scripts.Services
+namespace ZombieGame.Scripts.Services.InputService
 {
     public class StandaloneInput : InputService
     {

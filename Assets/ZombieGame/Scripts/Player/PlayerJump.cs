@@ -1,5 +1,4 @@
 using UnityEngine;
-using ZombieGame.Scripts.Controllers;
 
 namespace ZombieGame.Scripts.Player
 {

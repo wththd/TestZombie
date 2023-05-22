@@ -2,9 +2,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using Zenject;
-using ZombieGame.Scripts.Controllers;
 using ZombieGame.Scripts.Damage;
+using ZombieGame.Scripts.Damage.Projectiles;
 using ZombieGame.Scripts.Services;
+using ZombieGame.Scripts.Services.InputService;
 
 namespace ZombieGame.Scripts.Player
 {

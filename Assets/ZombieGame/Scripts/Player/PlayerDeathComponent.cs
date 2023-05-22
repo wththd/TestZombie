@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Zenject;
-using ZombieGame.Scripts.Controllers;
 using ZombieGame.Scripts.Damage;
 using ZombieGame.Scripts.Systems;
 

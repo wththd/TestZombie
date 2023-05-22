@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ZombieGame.Scripts.Controllers
+namespace ZombieGame.Scripts.Player
 {
     public class PlayerAnimationController : MonoBehaviour
     {

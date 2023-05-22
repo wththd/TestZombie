@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace ZombieGame.Scripts.Systems
+namespace ZombieGame.Scripts.Systems.Pause
 {
+    // Should be used for actual pause, not time scale
     public class PauseController : IPauseController
     {
         private readonly List<IPausable> pausables = new();

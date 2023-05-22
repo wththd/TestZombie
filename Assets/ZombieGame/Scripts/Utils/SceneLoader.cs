@@ -37,10 +37,11 @@ namespace ZombieGame.Scripts.Utils
 
         public static void CloseGame()
         {
-            if (Application.isEditor)
-                EditorApplication.isPlaying = false;
-            else
-                Application.Quit();
+#if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
     }
 }

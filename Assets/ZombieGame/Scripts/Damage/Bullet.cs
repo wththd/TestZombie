@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Zenject;
+using ZombieGame.Scripts.Damage.Projectiles;
 
 namespace ZombieGame.Scripts.Damage
 {

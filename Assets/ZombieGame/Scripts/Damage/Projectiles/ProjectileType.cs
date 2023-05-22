@@ -1,6 +1,6 @@
 using System;
 
-namespace ZombieGame.Scripts.Damage
+namespace ZombieGame.Scripts.Damage.Projectiles
 {
     [Serializable]
     public enum ProjectileType

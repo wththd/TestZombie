@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ZombieGame.Scripts.Damage;
+using ZombieGame.Scripts.Observers;
 
 namespace ZombieGame.Scripts.Enemy
 {

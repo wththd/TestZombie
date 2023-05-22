@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using ZombieGame.Scripts.Data;
 using ZombieGame.Scripts.Player;
+using ZombieGame.Scripts.Systems.Pause;
 
 namespace ZombieGame.Scripts.Systems
 {

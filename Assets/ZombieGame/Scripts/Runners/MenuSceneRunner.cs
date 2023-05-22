@@ -1,8 +1,7 @@
 ﻿using Zenject;
-using ZombieGame.Scripts.Runners;
 using ZombieGame.Scripts.Utils;
 
-namespace ZombieGame.Scripts.Installers
+namespace ZombieGame.Scripts.Runners
 {
     public class MenuSceneRunner : BaseRunner
     {

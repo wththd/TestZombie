@@ -1,4 +1,5 @@
 using UnityEngine;
+using ZombieGame.Scripts.Damage.Projectiles;
 
 namespace ZombieGame.Scripts.Damage
 {
