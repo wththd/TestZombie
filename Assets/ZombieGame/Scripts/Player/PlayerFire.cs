@@ -13,20 +13,13 @@ namespace ZombieGame.Scripts.Player
     {
         private IInputService _inputService;
         private Projectile.Factory _projectileFactory;
+        private CharacterController characterController;
 
         private bool isCurrentlyAttacking;
+        private bool isDead;
         private bool isOnCooldown;
         private PlayerAnimationController playerAnimationController;
-        private CharacterController characterController;
         private IWeapon weapon;
-        private bool isDead;
-
-        [Inject]
-        private void Inject(IInputService inputService, Projectile.Factory projectileFactory)
-        {
-            _inputService = inputService;
-            _projectileFactory = projectileFactory;
-        }
 
         private void Awake()
         {
@@ -39,13 +32,17 @@ namespace ZombieGame.Scripts.Player
 
         private void Update()
         {
-            if (isDead)
-            {
-                return;
-            }
+            if (isDead) return;
 
             UpdateAttackState();
             UpdateFireState();
+        }
+
+        [Inject]
+        private void Inject(IInputService inputService, Projectile.Factory projectileFactory)
+        {
+            _inputService = inputService;
+            _projectileFactory = projectileFactory;
         }
 
         private void UpdateAttackState()

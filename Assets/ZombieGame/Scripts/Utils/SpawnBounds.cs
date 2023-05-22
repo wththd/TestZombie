@@ -6,7 +6,7 @@ namespace ZombieGame.Scripts.Utils
     {
         private readonly Vector3 _bottomLeftPosition;
         private readonly Vector3 _topRightPosition;
-        
+
         public SpawnBounds(Vector3 bottomLeftPosition, Vector3 topRightPosition)
         {
             _bottomLeftPosition = bottomLeftPosition;

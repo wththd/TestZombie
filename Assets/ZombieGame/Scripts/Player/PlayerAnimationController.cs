@@ -1,22 +1,19 @@
 using UnityEngine;
-using Zenject;
-using ZombieGame.Scripts.Services;
 
 namespace ZombieGame.Scripts.Controllers
 {
     public class PlayerAnimationController : MonoBehaviour
     {
-        private Animator _animator;
-        private CharacterController _characterController;
-
-        private bool isCurrentlyAttacking;
-
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int X = Animator.StringToHash("X");
         private static readonly int Y = Animator.StringToHash("Y");
         private static readonly int Aiming = Animator.StringToHash("Aiming");
         private static readonly int Shoot = Animator.StringToHash("Shoot");
         private static readonly int Dead = Animator.StringToHash("Dead");
+        private Animator _animator;
+        private CharacterController _characterController;
+
+        private bool isCurrentlyAttacking;
 
         private void Awake()
         {
@@ -51,7 +48,7 @@ namespace ZombieGame.Scripts.Controllers
 
         public void PlayHit()
         {
-           // No hit animation on model
+            // No hit animation on model
         }
 
         public void PlayDeath()

@@ -7,29 +7,31 @@ namespace ZombieGame.Scripts.Enemy
 {
     public class EnemyAttackComponent : MonoBehaviour
     {
-        [SerializeField] 
-        private float range;
-        [SerializeField] 
-        private int damage;
-        [SerializeField] 
-        private float cooldown;
-        [SerializeField] 
-        private List<TriggerObserver> observers;
-        [SerializeField]
-        private EnemyAnimator enemyAnimator;
+        [SerializeField] private float range;
+
+        [SerializeField] private int damage;
+
+        [SerializeField] private float cooldown;
+
+        [SerializeField] private List<TriggerObserver> observers;
+
+        [SerializeField] private EnemyAnimator enemyAnimator;
+
+        private bool isAttacking;
 
         private bool isOnCooldown;
         public float DistanceToTarget { get; set; }
-        
+
         private bool CanAttack => !isOnCooldown && DistanceToTarget < range;
-        private bool isAttacking;
 
         private void Awake()
         {
-            foreach (var observer in observers)
-            {
-                observer.TriggerEnter += OnTriggerEnter;
-            }
+            foreach (var observer in observers) observer.TriggerEnter += OnTriggerEnter;
+        }
+
+        private void Update()
+        {
+            AttackUpdate();
         }
 
         private void OnEnable()
@@ -37,32 +39,19 @@ namespace ZombieGame.Scripts.Enemy
             StartCoroutine(CooldownRoutine());
         }
 
-        private void Update()
-        {
-            AttackUpdate();
-        }
-        
-        private void AttackUpdate()
-        {
-            if (!CanAttack)
-            {
-                return;
-            }
-
-            StartAttack();
-        }
-
         private void OnTriggerEnter(Collider triggerCollider)
         {
-            if (!isAttacking)
-            {
-                return;
-            }
-            
+            if (!isAttacking) return;
+
             if (triggerCollider.CompareTag("Player"))
-            {
                 triggerCollider.gameObject.GetComponent<IHealth>().TakeDamage(damage, DamageType.Melee);
-            }
+        }
+
+        private void AttackUpdate()
+        {
+            if (!CanAttack) return;
+
+            StartAttack();
         }
 
         private void StartAttack()

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace ZombieGame.Scripts.Utils
@@ -7,7 +9,7 @@ namespace ZombieGame.Scripts.Utils
     public class SceneLoader
     {
         private readonly ICoroutineRunner _runner;
-        
+
         public SceneLoader(ICoroutineRunner runner)
         {
             _runner = runner;
@@ -25,15 +27,20 @@ namespace ZombieGame.Scripts.Utils
                 onLoaded?.Invoke();
                 yield break;
             }
-      
+
             var waitNextScene = SceneManager.LoadSceneAsync(nextScene);
 
-            while (!waitNextScene.isDone)
-            {
-                yield return null;
-            }
+            while (!waitNextScene.isDone) yield return null;
 
             onLoaded?.Invoke();
+        }
+
+        public static void CloseGame()
+        {
+            if (Application.isEditor)
+                EditorApplication.isPlaying = false;
+            else
+                Application.Quit();
         }
     }
 }

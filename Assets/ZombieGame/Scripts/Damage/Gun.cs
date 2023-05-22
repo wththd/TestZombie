@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace ZombieGame.Scripts.Damage
 {
     public class Gun : Weapon

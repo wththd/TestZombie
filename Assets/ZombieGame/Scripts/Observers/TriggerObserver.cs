@@ -6,9 +6,6 @@ namespace ZombieGame.Scripts.Enemy
     [RequireComponent(typeof(Collider))]
     public class TriggerObserver : MonoBehaviour
     {
-        public event Action<Collider> TriggerEnter;
-        public event Action<Collider> TriggerExit;
-
         private void OnTriggerEnter(Collider other)
         {
             TriggerEnter?.Invoke(other);
@@ -18,5 +15,8 @@ namespace ZombieGame.Scripts.Enemy
         {
             TriggerExit?.Invoke(other);
         }
+
+        public event Action<Collider> TriggerEnter;
+        public event Action<Collider> TriggerExit;
     }
 }

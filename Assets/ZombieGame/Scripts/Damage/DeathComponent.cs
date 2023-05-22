@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ZombieGame.Scripts.Damage
 {
@@ -7,6 +6,7 @@ namespace ZombieGame.Scripts.Damage
     public abstract class DeathComponent : MonoBehaviour
     {
         protected IHealth health;
+
         protected virtual void Awake()
         {
             health = GetComponent<IHealth>();

@@ -4,23 +4,17 @@ using ZombieGame.Scripts.Services;
 
 public class PlayerMoveController : MonoBehaviour
 {
-    private IInputService _inputService;
+    [SerializeField] private float speed;
+
+    [SerializeField] private float aimSpeed;
+
+    [SerializeField] private Camera playerCamera;
+
     private CharacterController _characterController;
-    [SerializeField] 
-    private float speed;
-    [SerializeField] 
-    private float aimSpeed;
-    [SerializeField] 
-    private Camera playerCamera;
+    private IInputService _inputService;
 
     private bool isDead;
 
-    [Inject]
-    private void Inject(IInputService inputService)
-    {
-        _inputService = inputService;
-    }
-    
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -29,13 +23,16 @@ public class PlayerMoveController : MonoBehaviour
 
     private void Update()
     {
-        if (isDead)
-        {
-            return;
-        }
-        
+        if (isDead) return;
+
         MoveUpdate();
         RotateUpdate();
+    }
+
+    [Inject]
+    private void Inject(IInputService inputService)
+    {
+        _inputService = inputService;
     }
 
     private void RotateUpdate()
@@ -64,15 +61,19 @@ public class PlayerMoveController : MonoBehaviour
 
         _characterController.Move(movementVector * (targetSpeed * Time.deltaTime));
     }
-    
+
     public void OnHit()
     {
-        
     }
-    
+
     public void OnDeath()
     {
         isDead = true;
+    }
+
+    public void Dispose()
+    {
+        Destroy(gameObject);
     }
 
     public class Factory : PlaceholderFactory<PlayerMoveController>

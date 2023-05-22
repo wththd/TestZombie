@@ -5,7 +5,7 @@ namespace ZombieGame.Scripts.Observers
     public class AnimatorStateMachineObserver : StateMachineBehaviour
     {
         private IAnimationStateReader _stateReader;
-        
+
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
             base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -21,13 +21,10 @@ namespace ZombieGame.Scripts.Observers
 
             _stateReader.ExitedState(stateInfo.shortNameHash);
         }
-        
+
         private void FindReader(Animator animator)
         {
-            if (_stateReader != null)
-            {
-                return;
-            }
+            if (_stateReader != null) return;
 
             _stateReader = animator.gameObject.GetComponent<IAnimationStateReader>();
         }

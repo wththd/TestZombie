@@ -6,14 +6,15 @@ namespace ZombieGame.Scripts.Damage
 {
     public class ProjectileFactory : IFactory<Vector3, Vector3, ProjectileSettings, Projectile>
     {
-        private readonly Settings _settings;
         private readonly DiContainer _container;
+        private readonly Settings _settings;
 
         public ProjectileFactory(Settings settings, DiContainer container)
         {
             _settings = settings;
             _container = container;
         }
+
         public Projectile Create(Vector3 position, Vector3 direction, ProjectileSettings settings)
         {
             Projectile prefab = null;
@@ -25,13 +26,13 @@ namespace ZombieGame.Scripts.Damage
                 default:
                     throw new NotImplementedException();
             }
-            
+
             var args = new object[] { position, direction, settings };
             var instance = _container.InstantiatePrefabForComponent<Projectile>(prefab, args);
 
             return instance;
         }
-        
+
         [Serializable]
         public class Settings
         {

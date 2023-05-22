@@ -4,18 +4,22 @@ namespace ZombieGame.Scripts.Damage
 {
     public abstract class Weapon : MonoBehaviour, IWeapon
     {
-        [Tooltip("Weapon projectile settings")]
+        [Tooltip("Weapon projectile settings")] 
         [SerializeField]
         private ProjectileSettings settings;
+
         [Tooltip("Cooldown between firing a projectile")]
-        [SerializeField] 
+        [SerializeField]
         private float cooldown;
-        [Tooltip("Weapon ammo capacity")]
+
+        [Tooltip("Weapon ammo capacity")] 
         [SerializeField]
         private int capacity;
-        [Tooltip("Weapon starting fire point")]
+
+        [Tooltip("Weapon starting fire point")] 
         [SerializeField]
         private Transform firePoint;
+
         public Transform FirePoint => firePoint;
 
         public ProjectileSettings WeaponSettings => settings;
@@ -27,18 +31,12 @@ namespace ZombieGame.Scripts.Damage
         {
             return Capacity == 0 || CurrentCapacity > 0;
         }
-        
+
         public void Fire()
         {
-            if (Capacity == 0)
-            {
-                return;
-            }
-            
-            if (CurrentCapacity > 0)
-            {
-                CurrentCapacity--;
-            }
+            if (Capacity == 0) return;
+
+            if (CurrentCapacity > 0) CurrentCapacity--;
         }
 
         public void Reload()

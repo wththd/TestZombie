@@ -4,23 +4,24 @@ using ZombieGame.Scripts.Damage;
 using ZombieGame.Scripts.Data;
 using ZombieGame.Scripts.Enemy;
 using ZombieGame.Scripts.Services;
+using ZombieGame.Scripts.Systems;
 using ZombieGame.Scripts.Utils;
 
 namespace ZombieGame.Scripts.Installers
 {
     public class GameSceneInstaller : MonoInstaller
     {
-        [SerializeField] 
-        private GameSceneSettings gameSceneSettings;
-        [SerializeField] 
-        private Transform playerSpawnTransform;
-        [SerializeField] 
-        private Transform zombiesSpawnTransform;
+        [SerializeField] private GameSceneSettings gameSceneSettings;
+
+        [SerializeField] private Transform playerSpawnTransform;
+
+        [SerializeField] private Transform zombiesSpawnTransform;
 
         [SerializeField] private Transform leftBorderPosition;
         [SerializeField] private Transform rightBorderPosition;
-        [SerializeField]
-        private Camera mainCamera;
+
+        [SerializeField] private Camera mainCamera;
+
         public override void InstallBindings()
         {
             Container.BindInstance(gameSceneSettings.ProjectileFactorySettings);
@@ -28,6 +29,7 @@ namespace ZombieGame.Scripts.Installers
             Container.Bind<IInputService>().To<StandaloneInput>().AsSingle();
             Container.Bind<SpawnBounds>().AsSingle()
                 .WithArguments(leftBorderPosition.position, rightBorderPosition.position);
+            Container.BindInterfacesAndSelfTo<GameProcess>().AsSingle();
             BindFactories();
         }
 
@@ -42,7 +44,7 @@ namespace ZombieGame.Scripts.Installers
             Container.BindFactory<PlayerMoveController, PlayerMoveController.Factory>()
                 .FromComponentInNewPrefab(gameSceneSettings.PlayerPrefab)
                 .UnderTransform(playerSpawnTransform);
-            Container.BindFactory<PlayerMoveController, WaveConfig, EnemySpawner, EnemySpawner.Factory>();
+            Container.BindFactory<PlayerMoveController, EnemySpawner, EnemySpawner.Factory>();
         }
     }
 }
