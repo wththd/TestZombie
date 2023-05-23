@@ -52,13 +52,13 @@ namespace ZombieGame.Scripts.Damage
 
         private IEnumerator DestroyRoutine()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(_settings.Timer);
             Destroy(gameObject);
         }
 
         private void OnDestroy()
         {
-            observer.TriggerEnter += OnHit;
+            observer.TriggerEnter -= OnHit;
         }
     }
 }

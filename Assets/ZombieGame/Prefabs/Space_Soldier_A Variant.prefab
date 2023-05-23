@@ -229,7 +229,7 @@ MonoBehaviour:
     Speed: 10
     Damage: 5
     DamageType: 0
-    Timer: 0
+    Timer: 5
   cooldown: 0.3
   capacity: 0
   firePoint: {fileID: 1998859095}
