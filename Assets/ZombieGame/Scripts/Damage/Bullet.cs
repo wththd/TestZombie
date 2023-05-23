@@ -23,7 +23,7 @@ namespace ZombieGame.Scripts.Damage
         private void Awake()
         {
             observer.TriggerEnter += OnHit;
-            StartCoroutine(Test());
+            StartCoroutine(DestroyRoutine());
         }
 
         private void Update()
@@ -50,14 +50,15 @@ namespace ZombieGame.Scripts.Damage
             Destroy(gameObject);
         }
 
-        private IEnumerator Test()
+        private IEnumerator DestroyRoutine()
         {
             yield return new WaitForSeconds(5);
             Destroy(gameObject);
         }
 
-        public override void DealDamage(int damage)
+        private void OnDestroy()
         {
+            observer.TriggerEnter += OnHit;
         }
     }
 }

@@ -4,11 +4,10 @@ using ZombieGame.Scripts.Observers;
 
 namespace ZombieGame.Scripts.Damage.Projectiles
 {
-    public abstract class Projectile : MonoBehaviour, IDamage
+    public abstract class Projectile : MonoBehaviour
     {
-        [SerializeField] protected TriggerObserver observer;
-
-        public abstract void DealDamage(int damage);
+        [SerializeField] 
+        protected TriggerObserver observer;
 
         public class Factory : PlaceholderFactory<Vector3, Vector3, ProjectileSettings, Projectile>
         {
